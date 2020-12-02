@@ -3,7 +3,7 @@ import 'package:path/path.dart';
 import 'package:excel/excel.dart';
 
 void main(List<String> args) {
-  var file = "/Users/kawal/Desktop/rtl.xlsx";
+  var file = "E:/workspace/fexcel/data/xlsx/test.xlsx";
   var bytes = File(file).readAsBytesSync();
   //var excel = Excel.createExcel();
   // or
@@ -24,15 +24,13 @@ void main(List<String> args) {
 
   excel['Sheet1'].isRTL = false;
 
-  print(
-      'Sheet1: ((previous) isRTL: $sheet1rtl) ---> ((current) isRTL: ${excel['Sheet1'].isRTL})');
+  print('Sheet1: ((previous) isRTL: $sheet1rtl) ---> ((current) isRTL: ${excel['Sheet1'].isRTL})');
 
   var sheet2rtl = excel['Sheet2'].isRTL;
 
   excel['Sheet2'].isRTL = true;
 
-  print(
-      'Sheet2: ((previous) isRTL: $sheet2rtl) ---> ((current) isRTL: ${excel['Sheet2'].isRTL})');
+  print('Sheet2: ((previous) isRTL: $sheet2rtl) ---> ((current) isRTL: ${excel['Sheet2'].isRTL})');
 
   CellStyle cellStyle = CellStyle(
     bold: true,
@@ -76,7 +74,7 @@ void main(List<String> args) {
   excel.unLink('sheet1');
 
   sheet = excel['sheet'];
-  
+
   /// appending rows and checking the time complexity of it
   /* List<List<String>> list = List.generate(6000, (index) => List.generate(20, (index1) => '$index $index1'));
 
@@ -99,7 +97,7 @@ void main(List<String> args) {
 
   // Saving the file
 
-  String outputFile = "/Users/kawal/Desktop/rotate_/r.xlsx";
+  String outputFile = "E:/workspace/fexcel/data/xlsx/testx.xlsx";
   excel.encode().then((onValue) {
     File(join(outputFile))
       ..createSync(recursive: true)
